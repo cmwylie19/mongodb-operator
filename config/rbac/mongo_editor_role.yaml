@@ -1,0 +1,24 @@
+# permissions for end users to edit mongoes.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: mongo-editor-role
+rules:
+- apiGroups:
+  - database.caseywylie.io
+  resources:
+  - mongoes
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - database.caseywylie.io
+  resources:
+  - mongoes/status
+  verbs:
+  - get
